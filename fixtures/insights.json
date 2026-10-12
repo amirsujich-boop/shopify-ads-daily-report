@@ -1,0 +1,12 @@
+{
+  "data": [
+    {"campaign_name": "Prospecting · Broad · Video", "spend": "120.40", "impressions": "41200", "clicks": "612",
+     "actions": [{"action_type": "purchase", "value": "3"}, {"action_type": "add_to_cart", "value": "27"}],
+     "action_values": [{"action_type": "purchase", "value": "327.90"}]},
+    {"campaign_name": "Retargeting · 30d visitors", "spend": "38.10", "impressions": "9800", "clicks": "240",
+     "actions": [{"action_type": "purchase", "value": "2"}],
+     "action_values": [{"action_type": "purchase", "value": "238.00"}]},
+    {"campaign_name": "Catalog · DPA", "spend": "22.00", "impressions": "7600", "clicks": "95", "actions": [], "action_values": []}
+  ],
+  "paging": {"cursors": {"before": "x", "after": "y"}}
+}
