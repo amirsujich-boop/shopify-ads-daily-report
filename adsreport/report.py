@@ -31,7 +31,8 @@ def render(day: dt.date, s: Summary, target_roas: float | None = None) -> str:
         "",
         "## Meta Ads",
         f"- Spend: **{_money(s.spend, cur)}**",
-        f"- ROAS: **{s.roas:.2f}x**{verdict}",
+        f"- Blended ROAS: **{s.roas:.2f}x**{verdict}  ·  MER: {_pct(s.mer)}",
+        f"- Platform ROAS (Meta attributed): {s.platform_roas:.2f}x on {s.attributed_purchases:.0f} purchases",
         f"- CPA (spend / all orders): {_money(s.cpa, cur)}",
         f"- Impressions: {s.impressions:,}  ·  Clicks: {s.clicks:,}  ·  CTR: {_pct(s.ctr)}  ·  CPC: {_money(s.cpc, cur)}",
         "",
@@ -45,4 +46,11 @@ def render(day: dt.date, s: Summary, target_roas: float | None = None) -> str:
             )
         lines.append("")
 
+    gap = s.attributed_value - s.revenue
+    if s.spend and gap > 0.15 * s.revenue:
+        lines += [
+            "> Meta reports more purchase value than the store took in. Expect this on days with view-through "
+            "attribution or a 7-day click window catching up on earlier orders. Trust the blended number.",
+            "",
+        ]
     return "\n".join(lines)

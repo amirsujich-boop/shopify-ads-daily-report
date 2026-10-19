@@ -29,6 +29,11 @@ class Summary:
         return self.revenue / self.spend if self.spend else 0.0
 
     @property
+    def platform_roas(self) -> float:
+        """What Meta claims: attributed purchase value / spend."""
+        return self.attributed_value / self.spend if self.spend else 0.0
+
+    @property
     def cpa(self) -> float:
         return self.spend / self.orders if self.orders else 0.0
 
@@ -39,6 +44,11 @@ class Summary:
     @property
     def cpc(self) -> float:
         return self.spend / self.clicks if self.clicks else 0.0
+
+    @property
+    def mer(self) -> float:
+        """Marketing efficiency ratio = spend / revenue (lower is better)."""
+        return self.spend / self.revenue if self.revenue else 0.0
 
 
 def summarise(orders: list[dict], ad_rows: list[dict]) -> Summary:
