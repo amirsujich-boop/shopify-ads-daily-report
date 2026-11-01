@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shopify-ads-daily-report"
-version = "0.2.0"
+version = "0.2.1"
 description = "One command: yesterday's Shopify orders + Meta Ads spend → ROAS, CPA, AOV in a Markdown report (and Slack if you want)."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -15,9 +15,8 @@ dependencies = ["requests>=2.31"]
 [project.optional-dependencies]
 dev = ["pytest>=8"]
 
+[project.scripts]
+adsreport = "adsreport.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["adsreport*"]
-
-[project.scripts]
-adsreport = "adsreport.cli:main"
