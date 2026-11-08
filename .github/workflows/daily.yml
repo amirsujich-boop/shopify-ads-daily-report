@@ -7,6 +7,9 @@ on:
 
 jobs:
   report:
+    # Off until you set the repository variable ENABLE_DAILY_REPORT=true
+    # (Settings -> Secrets and variables -> Actions -> Variables) and add the secrets below.
+    if: ${{ vars.ENABLE_DAILY_REPORT == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

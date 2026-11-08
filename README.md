@@ -65,7 +65,8 @@ adsreport --from-fixtures fixtures --date 2025-10-14 --target-roas 3
 
 1. Fork this repo (private forks are fine).
 2. Settings → Secrets and variables → Actions → add the five variables above as secrets.
-3. Done. `.github/workflows/daily.yml` runs at 06:15 UTC, posts to Slack and keeps each report as a build artifact. Adjust `--tz` and `--target-roas` in that file.
+3. Variables tab → add `ENABLE_DAILY_REPORT` = `true` (the scheduled job stays off without it, so a fresh fork does not fail every morning).
+4. Done. `.github/workflows/daily.yml` runs at 06:15 UTC, posts to Slack and keeps each report as a build artifact. Adjust `--tz` and `--target-roas` in that file.
 
 ## CLI
 
